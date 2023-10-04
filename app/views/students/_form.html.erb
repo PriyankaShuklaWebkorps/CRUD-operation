@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* Container styling */
+    .registration-container {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #f0f0f0;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Header styling */
+    h1 {
+      text-align: center;
+      color: #007bff; /* Blue color */
+    }
+
+    /* Form styling */
+    form {
+      margin-top: 20px;
+    }
+
+    /* Form labels */
+    label {
+      font-weight: bold;
+      color: #333;
+    }
+
+    /* Form input fields */
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      font-size: 16px;
+    }
+
+    /* Form submit button */
+    input[type="submit"] {
+      background-color: #007bff; /* Blue color */
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      border-radius: 3px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="registration-container">
+    <h1>Registration Form</h1>
+    <%= form_with model: @student do |form| %>
+
+      <div>
+        <%= form.label :name %><br>
+        <%= form.text_field :name %>
+      </div>
+
+      <div>
+        <%= form.label :email %><br>
+        <%= form.email_field :email %>
+      </div>
+
+      <div>
+        <%= form.label :password %><br>
+        <%= form.password_field :password %>
+      </div>
+
+      <div>
+        <%= form.submit %>
+      </div>
+    <% end %>
+  </div>
+</body>
+</html>

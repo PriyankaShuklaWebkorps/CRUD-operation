@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* Form container */
+    form {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #f7f7f7;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Form labels */
+    label {
+      font-weight: bold;
+      color: #333;
+    }
+
+    /* Form input fields */
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      font-size: 16px;
+    }
+
+    /* Form submit button */
+    input[type="submit"] {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      border-radius: 3px;
+      font-size: 16px;
+    }
+
+    /* Back link */
+    a {
+      text-decoration: none;
+      color: #007bff;
+    }
+
+    /* Hover effect for links */
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <h1 style="text-align: center; color: #007bff;">Edit Student Details</h1>
+
+  <%= form_with model: @student, url: student_path(@student), method: :patch do |form| %>
+    <div>
+      <%= form.label :name %><br>
+      <%= form.text_field :name %><br>
+    </div>
+
+    <div>
+      <%= form.label :email %><br>
+      <%= form.email_field :email %><br>
+    </div>
+
+    <div>
+      <%= form.label :password %><br>
+      <%= form.password_field :password %><br>
+    </div>
+
+    <div>
+      <%= form.submit 'Update Changes' %>
+    </div>
+    
+    <div>
+      <%= link_to "Back", students_path %>
+    </div>
+  <% end %>
+</body>
+</html>
